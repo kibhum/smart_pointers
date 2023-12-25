@@ -1,3 +1,11 @@
+#[derive(Debug)]
+enum List {
+    Cons(i32, Box<List>),
+    Nil,
+}
+
+use List::{Cons, Nil};
+
 fn main() {
     let single_value = Box::new(0.625);
     let x = 0.625;
@@ -19,4 +27,7 @@ fn main() {
     println!("{} {}", point.0, point.1);
 
     let x = *point;
+    //
+    let list = Box::new(Cons(1, Box::new(Cons(2, Box::new(Nil)))));
+    println!("{:?}", list)
 }
